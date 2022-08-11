@@ -19,7 +19,6 @@ public class GameBoard {
     }
 
 
-
     public int getColumn() {
         return column;
     }
@@ -48,11 +47,16 @@ public class GameBoard {
     public void displayBoard() {
 
         for(int s=0; s < this.getRow(); s++) {
+            System.out.print(s+1);
             for(int k=0; k <this.getColumn(); k++) {
                 System.out.print("\t" + board[s][k]);
             }
             System.out.println();
         }
+        for(int i =0; i<this.getRow();i++){
+            System.out.print("\t"+(i+1));
+        }
+        System.out.println();
         System.out.println();
         System.out.println("**********************************");
         System.out.println();

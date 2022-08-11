@@ -1,5 +1,6 @@
 package org.kodluyoruz;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class SosGame {
@@ -128,7 +129,6 @@ public class SosGame {
             int ranCompRow = ((int) (Math.random() * (this.board.getRow())+1));
             int ranCompColumn = ((int) (Math.random() * (this.board.getColumn())+1));
             int ranChar = ((int) (Math.random() * ((3 - 1))));
-            System.out.println(this.board.getBoard()[ranCompRow-1][ranCompColumn-1]);
             if(this.board.getBoard()[ranCompRow-1][ranCompColumn-1].equals("-")){
                 this.board.getBoard()[ranCompRow-1][ranCompColumn-1] = ranChar == 1 ? "S" : "O";
                 this.setCompScore(this.getCompScore()+playerScoreCalc(ranChar == 1 ? "S" : "O", ranCompRow, ranCompColumn));
@@ -261,6 +261,7 @@ public class SosGame {
         System.out.println();
         System.out.println("Computer scores: " + this.getCompScore());
         System.out.println("**********************************");
+        System.out.println();
     }
 }
 
