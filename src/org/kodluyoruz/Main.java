@@ -10,8 +10,15 @@ public class Main {
         System.out.println("Please enter your name and  select map size (1-SMALL,2-MEDIUM,3-LARGE) ");
         System.out.print("Name: ");
         String name = in.nextLine();
+        int select=1;
         System.out.print("MapSize: ");
-        int select = in.nextInt();
+        while (!in.hasNextInt()){
+            System.out.println("Invalid number please enter (1),(2) or (3) !! ");
+            System.out.print("MapSize: ");
+            in.next();
+        }
+        select = in.nextInt();
+
         int index;
         switch(select){
             case 1:

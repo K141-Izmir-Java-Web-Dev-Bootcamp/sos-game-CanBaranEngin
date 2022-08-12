@@ -45,7 +45,10 @@ public class GameBoard {
 
     }
     public void displayBoard() {
-
+        for(int i =0; i<this.getRow();i++){
+            System.out.print("\t"+(i+1));
+        }
+        System.out.println();
         for(int s=0; s < this.getRow(); s++) {
             System.out.print(s+1);
             for(int k=0; k <this.getColumn(); k++) {
@@ -53,9 +56,7 @@ public class GameBoard {
             }
             System.out.println();
         }
-        for(int i =0; i<this.getRow();i++){
-            System.out.print("\t"+(i+1));
-        }
+
         System.out.println();
         System.out.println();
         System.out.println("**********************************");

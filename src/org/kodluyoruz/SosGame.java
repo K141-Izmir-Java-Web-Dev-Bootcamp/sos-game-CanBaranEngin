@@ -1,6 +1,7 @@
 package org.kodluyoruz;
 
 import java.sql.SQLOutput;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class SosGame {
@@ -60,7 +61,7 @@ public class SosGame {
     }
 
     public void gameRun() {
-        System.out.println("------Welcome to the SOS Game " + this.userName + " !!------- ");
+        System.out.println("------Welcome to the SOS Game !! " + this.userName + " ------- ");
         System.out.println();
         this.getBoard().createBoard();
         boolean start = true;
@@ -102,12 +103,28 @@ public class SosGame {
         System.out.println("First please enter the 'S' or 'O' character which you want to insert the board, than enter the row and column number ");
         boolean sameCharCheck=true;
         this.setCount(this.getCount()+1);
+        String insChar="";
         while (sameCharCheck){
             System.out.print("Char (S)/(O): ");
-            String insChar = in.next().toUpperCase();
+            while (!in.hasNext("[SOso]")){
+                System.out.println("Invalid char please enter (S) or (O) !! ");
+                System.out.print("Char (S)/(O): ");
+                in.next();
+            }
+            insChar = in.next().toUpperCase();
             System.out.print("Row: ");
+            while (!in.hasNextInt()){
+                System.out.println("Invalid character please enter a number  !! ");
+                System.out.print("Row: ");
+                in.next();
+            }
             int row = in.nextInt();
             System.out.print("Column: ");
+            while (!in.hasNextInt()){
+                System.out.println("Invalid character please enter a number  !! ");
+                System.out.print("Column: ");
+                in.next();
+            }
             int column = in.nextInt();
             if(this.board.getBoard()[row-1][column-1]!="S" && this.board.getBoard()[row-1][column-1]!="O"){
                 this.board.getBoard()[row - 1][column - 1] = insChar;
